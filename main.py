@@ -131,22 +131,31 @@ def check_bingo():
     
 
 def random_num():
-    # ## For Test
+    ## For Test
     # rnum = int(input('Input Number : '))
-    # ## For Test
+    # for xi in range(25):
+    #     if bingo_card[xi] == rnum:
+    #         bingo_card[xi] = 'X'
+    #         print('Find : ', rnum)
+    #         sleep(1)
+    #         show_table()
+    #         check_bingo()
+    # random_num()
+    ## For Test
 
     input('Input Anykey to continue')
     rnum = random.randint(0, len(num_table)-1)
     print('Number Random : ', num_table[rnum])
-    del num_table[rnum]
 
     for xi in range(25):
-        if bingo_card[xi] == rnum:
+        if bingo_card[xi] == num_table[rnum]:
             bingo_card[xi] = 'X'
-            print('Find : ', rnum)
+            print('Find : ', num_table[rnum])
+            del num_table[rnum]
             sleep(1)
             show_table()
             check_bingo()
+    del num_table[rnum]
     random_num()
 
 if __name__ == "__main__":
