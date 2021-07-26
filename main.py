@@ -73,33 +73,73 @@ def show_table():
     print('|-----------------------------|')
 
 def check_bingo():
-    # Check vertical
-    if bingo_card[0] == 'X' and bingo_card[1] == 'X' and bingo_card[2] == 'X' and bingo_card[3] == 'X' and bingo_card[4] == 'X' or bingo_card[5] == 'X' and bingo_card[6] == 'X' and bingo_card[7] == 'X' and bingo_card[8] == 'X' and bingo_card[9] == 'X' or bingo_card[10] == 'X' and bingo_card[11] == 'X' and bingo_card[12] == 'X' and bingo_card[13] == 'X' and bingo_card[14] == 'X' or bingo_card[15] == 'X' and bingo_card[16] == 'X' and bingo_card[17] == 'X' and bingo_card[18] == 'X' and bingo_card[19] == 'X' or bingo_card[20] == 'X' and bingo_card[21] == 'X' and bingo_card[22] == 'X' and bingo_card[23] == 'X' and bingo_card[24] == 'X':
-        sleep(1)
-        print('Bingo!!!')
-        print('You Win!')
-        exit()
-    # Check horizontal
-    elif bingo_card[0] == 'X' and bingo_card[5] == 'X' and bingo_card[10] == 'X' and bingo_card[15] == 'X' and bingo_card[20] == 'X' or bingo_card[1] == 'X' and bingo_card[6] == 'X' and bingo_card[11] == 'X' and bingo_card[16] == 'X' and bingo_card[21] == 'X' or bingo_card[2] == 'X' and bingo_card[7] == 'X' and bingo_card[12] == 'X' and bingo_card[17] == 'X' and bingo_card[22] == 'X' or bingo_card[3] == 'X' and bingo_card[8] == 'X' and bingo_card[13] == 'X' and bingo_card[18] == 'X' and bingo_card[23] == 'X' or bingo_card[4] == 'X' and bingo_card[9] == 'X' and bingo_card[14] == 'X' and bingo_card[19] == 'X' and bingo_card[24] == 'X':
-        sleep(1)
-        print('Bingo!!!')
-        print('You Win!')
-        exit()
-    # Check oblique
-    elif bingo_card[0] == 'X' and bingo_card[6] == 'X' and bingo_card[12] == 'X' and bingo_card[18] == 'X' and bingo_card[24] == 'X' or bingo_card[20] == 'X' and bingo_card[16] == 'X' and bingo_card[12] == 'X' and bingo_card[8] == 'X' and bingo_card[4]:
-        sleep(1)
-        print('Bingo!!!')
-        print('You Win!')
-        exit()
-    else:
-        random_num()
+
+    # # # # Old  # # #
+    # # # Check vertical
+    # if bingo_card[0] == 'X' and bingo_card[1] == 'X' and bingo_card[2] == 'X' and bingo_card[3] == 'X' and bingo_card[4] == 'X' or bingo_card[5] == 'X' and bingo_card[6] == 'X' and bingo_card[7] == 'X' and bingo_card[8] == 'X' and bingo_card[9] == 'X' or bingo_card[10] == 'X' and bingo_card[11] == 'X' and bingo_card[12] == 'X' and bingo_card[13] == 'X' and bingo_card[14] == 'X' or bingo_card[15] == 'X' and bingo_card[16] == 'X' and bingo_card[17] == 'X' and bingo_card[18] == 'X' and bingo_card[19] == 'X' or bingo_card[20] == 'X' and bingo_card[21] == 'X' and bingo_card[22] == 'X' and bingo_card[23] == 'X' and bingo_card[24] == 'X':
+    #     sleep(1)
+    #     print('Bingo!!!')
+    #     print('You Win!')
+    #     exit()
+    # # # Check horizontal
+    # elif bingo_card[0] == 'X' and bingo_card[5] == 'X' and bingo_card[10] == 'X' and bingo_card[15] == 'X' and bingo_card[20] == 'X' or bingo_card[1] == 'X' and bingo_card[6] == 'X' and bingo_card[11] == 'X' and bingo_card[16] == 'X' and bingo_card[21] == 'X' or bingo_card[2] == 'X' and bingo_card[7] == 'X' and bingo_card[12] == 'X' and bingo_card[17] == 'X' and bingo_card[22] == 'X' or bingo_card[3] == 'X' and bingo_card[8] == 'X' and bingo_card[13] == 'X' and bingo_card[18] == 'X' and bingo_card[23] == 'X' or bingo_card[4] == 'X' and bingo_card[9] == 'X' and bingo_card[14] == 'X' and bingo_card[19] == 'X' and bingo_card[24] == 'X':
+    #     sleep(1)
+    #     print('Bingo!!!')
+    #     print('You Win!')
+    #     exit()
+    # # # Check oblique
+    # elif bingo_card[0] == 'X' and bingo_card[6] == 'X' and bingo_card[12] == 'X' and bingo_card[18] == 'X' and bingo_card[24] == 'X' or bingo_card[20] == 'X' and bingo_card[16] == 'X' and bingo_card[12] == 'X' and bingo_card[8] == 'X' and bingo_card[4]:
+    #     sleep(1)
+    #     print('Bingo!!!')
+    #     print('You Win!')
+    #     exit()
+    # else:
+    #     random_num()
+
+    # # # New # # #
+    # # Check vertical
+    for vt in range(0, 25, 5): ## Start 0 End 25,  NextStep +5 [output 0, 5, 10, 15, 20]
+        # print('Check vertical' , vt+1)
+        if bingo_card[vt] == bingo_card[vt+1] == bingo_card[vt+2] == bingo_card[vt+3] == bingo_card[vt+4]:
+            sleep(1)
+            # print('Check vertical' , vt+1)
+            print('Bingo!!!')
+            print('You Win!')
+            exit()
+    # # Check horizontal
+    for hz in range(5):
+        # print('Check horizontal' , hz+1)
+        if bingo_card[hz] == bingo_card[hz+5] == bingo_card[hz+10] == bingo_card[hz+15] == bingo_card[hz+20]:
+            sleep(1)
+            print('Bingo!!!')
+            print('You Win!')
+            exit()
+    # # Check oblique
+    for blL in range(1):
+        if bingo_card[blL] == bingo_card[blL+6] == bingo_card[blL+12] == bingo_card[blL+18] == bingo_card[blL+24]:
+            sleep(1)
+            print('Bingo!!!')
+            print('You Win!')
+            exit()
+    for blR in range(1):
+        if bingo_card[blR+4] == bingo_card[blR+8] == bingo_card[blR+12] == bingo_card[blR+16] == bingo_card[blR+20]:
+            sleep(1)
+            print('Bingo!!!')
+            print('You Win!')
+            exit()
+    random_num()
+    
 
 def random_num():
+    # ## For Test
+    # rnum = int(input('Input Number : '))
+    # ## For Test
+
     input('Input Anykey to continue')
     rnum = random.randint(0, len(num_table)-1)
     print('Number Random : ', num_table[rnum])
-    # show_table()
     del num_table[rnum]
+
     for xi in range(25):
         if bingo_card[xi] == rnum:
             bingo_card[xi] = 'X'
