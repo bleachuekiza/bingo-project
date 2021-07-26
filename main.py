@@ -1,5 +1,8 @@
 import random
 from time import sleep
+import os
+
+clear = lambda: os.system('cls')
 
 number1_15 = []
 number16_30 = []
@@ -59,6 +62,8 @@ def rm_num_to_card():
     bingo_card[12] = 'X'
 
 def show_table():
+    sleep(2)
+    clear()
     print('{:^28}'.format('BINGO GAME'))
     print('|-----------------------------|')
     print('|{:^5}|{:^5}|{:^5}|{:^5}|{:^5}|'.format(bingo_card[0], bingo_card[5], bingo_card[10], bingo_card[15], bingo_card[20]))
@@ -152,10 +157,10 @@ def random_num():
             bingo_card[xi] = 'X'
             print('Find : ', num_table[rnum])
             del num_table[rnum]
-            sleep(1)
             show_table()
             check_bingo()
     del num_table[rnum]
+    show_table()
     random_num()
 
 if __name__ == "__main__":
